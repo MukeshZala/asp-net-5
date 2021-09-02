@@ -9,3 +9,4 @@ C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_Mo
 C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_Model\obj\Debug\net5.0\WizLib_Model.dll
 C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_Model\obj\Debug\net5.0\ref\WizLib_Model.dll
 C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_Model\obj\Debug\net5.0\WizLib_Model.pdb
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_Model\obj\Debug\net5.0\WizLib_Model.csproj.AssemblyReference.cache
