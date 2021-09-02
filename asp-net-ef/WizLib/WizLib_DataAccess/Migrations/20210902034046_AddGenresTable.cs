@@ -2,15 +2,9 @@
 
 namespace WizLib_DataAccess.Migrations
 {
-    public partial class RemoveGenresTable : Migration
+    public partial class AddGenresTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "Genres");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Genres",
@@ -24,6 +18,12 @@ namespace WizLib_DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Genres", x => x.GenreId);
                 });
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Genres");
         }
     }
 }
