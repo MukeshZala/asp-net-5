@@ -1,0 +1,15 @@
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\bin\Debug\net5.0\WizLib_DataAccess.deps.json
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\bin\Debug\net5.0\WizLib_DataAccess.dll
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\bin\Debug\net5.0\ref\WizLib_DataAccess.dll
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\bin\Debug\net5.0\WizLib_DataAccess.pdb
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.csproj.AssemblyReference.cache
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.AssemblyInfoInputs.cache
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.AssemblyInfo.cs
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.dll
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\ref\WizLib_DataAccess.dll
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.pdb
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\bin\Debug\net5.0\WizLib_Model.dll
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\bin\Debug\net5.0\WizLib_Model.pdb
+C:\Users\mukesh_zala\source\repos\asp-net-5-projects\asp-net-ef\WizLib\WizLib_DataAccess\obj\Debug\net5.0\WizLib_DataAccess.csproj.CopyComplete
