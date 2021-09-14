@@ -34,5 +34,7 @@ namespace WizLib_Model.Models
         [ForeignKey("Publisher")]
         public int Publisher_Id { get; set; }
 
+        public ICollection<Author> Authors { get; set; }
+
     }
 }

@@ -32,5 +32,7 @@ namespace WizLib_Model.Models
                 return $"{FirstName} {LastName}";
             }
         }
+
+        public ICollection<Book> Books { get; set; }
     }
 }
