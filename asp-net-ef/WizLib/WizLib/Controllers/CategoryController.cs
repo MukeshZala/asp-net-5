@@ -70,5 +70,33 @@ namespace WizLib.Controllers
 
         }
 
+        public IActionResult CreateMultiple2()
+        {
+            //No Bulk insert at EF level
+            List<Category> catlist = new List<Category>(); 
+            for (int i =0; i < 2; i ++ )
+            {
+                catlist.Add(new Category { Name = Guid.NewGuid().ToString() });
+            }
+
+            _db.Category.AddRange(catlist);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult CreateMultiple5()
+        {
+            //  Bulk insert at EF level, It dependent by threshold of SQL server level.
+            List<Category> catlist = new List<Category>();
+            for (int i = 0; i < 5; i++)
+            {
+                catlist.Add(new Category { Name = Guid.NewGuid().ToString() });
+            }
+
+            _db.Category.AddRange(catlist);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
