@@ -12,9 +12,9 @@ namespace WizLib_Model.Models
    public class Category
     {
         [Key]
-        public int Category_Id { get; set; }
+        public int CategoryId { get; set; }
 
         [Required]
-        public string CategoryName { get; set; }
+        public string Name { get; set; }
     }
 }

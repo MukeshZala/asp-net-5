@@ -6,9 +6,9 @@ namespace WizLib_DataAccess.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("INSERT INTO TBL_CATEGORY VALUES('Fiction') ");
-            migrationBuilder.Sql("INSERT INTO TBL_CATEGORY VALUES('Education') ");
-            migrationBuilder.Sql("INSERT INTO TBL_CATEGORY VALUES('Engineering') ");
+            //migrationBuilder.Sql("INSERT INTO TBL_CATEGORY VALUES('Fiction') ");
+            //migrationBuilder.Sql("INSERT INTO TBL_CATEGORY VALUES('Education') ");
+            //migrationBuilder.Sql("INSERT INTO TBL_CATEGORY VALUES('Engineering') ");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
