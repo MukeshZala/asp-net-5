@@ -13,10 +13,12 @@ namespace WizLib_Model.Models
         public int Publisher_Id { get; set; }
 
         [Required]
-        public string Nmae { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string Location { get; set; }
+
+        public DateTime BirthDate { get; set; }
 
         public List<Book> Books { get; set; }
     }
