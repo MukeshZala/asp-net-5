@@ -25,7 +25,9 @@ namespace WizLib_DataAccess.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
 
+        public DbSet<BookDetail> BookDetails { get; set; }
 
-        
+
+
     }
 }

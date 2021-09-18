@@ -89,7 +89,49 @@ namespace WizLib.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-         
+
+        public IActionResult Details(int? Id)
+        {
+            BookVM obj = new BookVM();
+
+            if (Id  == null)
+            {
+                obj.Book.BookDetail = new BookDetail();
+            }
+            else
+            {
+                obj.Book = _db.Books.FirstOrDefault(o => o.Book_Id == Id);
+                if (obj.Book == null)
+                    return NotFound();
+
+                obj.Book.BookDetail = _db.BookDetails.FirstOrDefault(o => o.BookDetail_Id == obj.Book.BookDetail_Id); 
+            }
+
+
+            return View(obj); 
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Details(BookVM obj )
+        {
+            if ( obj.Book.BookDetail.BookDetail_Id  ==0 )
+            {
+                _db.BookDetails.Add(obj.Book.BookDetail);
+                _db.SaveChanges();
+
+                Book book = _db.Books.FirstOrDefault(b => b.Book_Id == obj.Book.Book_Id);
+                book.BookDetail_Id = obj.Book.BookDetail.BookDetail_Id;
+                _db.SaveChanges();
+            }else
+            {
+                _db.BookDetails.Update(obj.Book.BookDetail);
+                _db.SaveChanges(); 
+            }
+            
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
