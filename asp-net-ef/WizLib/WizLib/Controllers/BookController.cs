@@ -143,6 +143,9 @@ namespace WizLib.Controllers
 
         public IActionResult PlayGround()
         {
+            //Performance
+            CheckPerformanceOfQuery();
+
             //executed immediately after below statement 
             var bookTemp = _db.Books.FirstOrDefault();
             bookTemp.Price = 100;
@@ -173,6 +176,18 @@ namespace WizLib.Controllers
             var bookCount2 = _db.Books.Count();
             return RedirectToAction(nameof(Index));
 
+        }
+
+        private void CheckPerformanceOfQuery()
+        {
+            IEnumerable<Book> books = _db.Books;
+            var filteredBooks1 = books.Where(b => b.Price > 10).ToList();
+
+
+            IQueryable<Book> queryBooks = _db.Books;
+            var filter2 = queryBooks.Where(b => b.Price > 10).ToList();
+
+            int i = 0;
         }
     }
 }
