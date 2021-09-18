@@ -23,10 +23,13 @@
                     <th>
                         Title
                     </th>
-                   
-                    @*<th>
+                   <th>
+                       Price
+                   </th>
+                    <th>
                         Publisher
                     </th>
+                    @*
                     <th>
                         Authors
                     </th>*@
@@ -38,9 +41,13 @@
                 <td>
                     @item.Title
                 </td>
-                @*<td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
                     @item.Publisher.Name
                 </td>
+                @*
                 <td>
                     @{ 
                         var authors = "";

@@ -23,6 +23,13 @@ namespace WizLib.Controllers
         public IActionResult Index()
         {
             List<Book> books= _db.Books.ToList<Book>();
+            foreach (var item in books)
+            {
+                // it will call DB for each publisher even though it's distinct. 
+                //item.Publisher = _db.Publishers.FirstOrDefault(p => p.Publisher_Id == item.Publisher_Id); 
+                //explicit loading will use distinct publishers only . 
+                _db.Entry(item).Reference(u => u.Publisher).Load(); 
+            }
             return View(books);
         }
         
