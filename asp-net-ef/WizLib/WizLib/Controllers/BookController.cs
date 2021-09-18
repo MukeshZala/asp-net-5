@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace WizLib.Controllers
 
         public IActionResult Index()
         {
+            /*
             List<Book> books= _db.Books.ToList<Book>();
             foreach (var item in books)
             {
@@ -30,6 +32,11 @@ namespace WizLib.Controllers
                 //explicit loading will use distinct publishers only . 
                 _db.Entry(item).Reference(u => u.Publisher).Load(); 
             }
+            */
+
+            //Eager loading, it will make inner join in EF query 
+            List<Book> books = _db.Books.Include(u => u.Publisher).ToList(); 
+
             return View(books);
         }
         
@@ -100,11 +107,11 @@ namespace WizLib.Controllers
             }
             else
             {
-                obj.Book = _db.Books.FirstOrDefault(o => o.Book_Id == Id);
+                obj.Book = _db.Books.Include(b=> b.BookDetail).FirstOrDefault(o => o.Book_Id == Id);
                 if (obj.Book == null)
                     return NotFound();
 
-                obj.Book.BookDetail = _db.BookDetails.FirstOrDefault(o => o.BookDetail_Id == obj.Book.BookDetail_Id); 
+              
             }
 
 
