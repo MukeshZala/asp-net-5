@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WizLib_DataAccess.Data;
 using WizLib_Model.Models;
+using WizLib_Model.ViewModels;
 
 namespace WizLib.Controllers
 {
@@ -23,53 +25,64 @@ namespace WizLib.Controllers
             List<Book> books= _db.Books.ToList<Book>();
             return View(books);
         }
-        /*
+        
         public IActionResult Upsert(int? Id)
         {
-            Author author = new Author();
+            BookVM bookVM = new BookVM();
+
+            bookVM.PublisherList = _db.Publishers.Select(
+                    obj => new SelectListItem()
+                    {
+                        Text = obj.Name,
+                        Value = obj.Publisher_Id.ToString()
+                    }
+                );
+
+
+
+
             if (Id != null)
             {
-                author = _db.Authors.FirstOrDefault<Author>(u => u.Author_Id.Equals(Id));
-                if (author == null)
-                    return NotFound();
+                bookVM.Book = _db.Books.FirstOrDefault(o => o.Book_Id == Id);
+                if (bookVM.Book == null)
+                    return NotFound(); 
+
             }
 
-            return View(author);
+            return View(bookVM);
         }
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(Author author)
+        public IActionResult Upsert(BookVM bookVM)
         {
-            if (ModelState.IsValid)
+            if (bookVM.Book.Book_Id == 0)
             {
-                if (author.Author_Id == 0)
-                    _db.Authors.Add(author);
-                else
-                    _db.Authors.Update(author);
-
-                _db.SaveChanges();
-
-                return RedirectToAction(nameof(Index));
+                _db.Books.Add(bookVM.Book);
             }
             else
-                return View(author);
+                _db.Books.Update(bookVM.Book);
+
+            _db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Delete(int Id)
         {
-            var author = _db.Authors.FirstOrDefault<Author>(u => u.Author_Id == Id);
-            if (author == null)
+            var dbBook = _db.Books.FirstOrDefault(b => b.Book_Id == Id);
+            if (dbBook == null)
                 return NotFound();
             else
-                _db.Authors.Remove(author);
+                _db.Books.Remove(dbBook); 
 
             _db.SaveChanges();
 
 
             return RedirectToAction(nameof(Index));
         }
-        */
+         
 
     }
 }
