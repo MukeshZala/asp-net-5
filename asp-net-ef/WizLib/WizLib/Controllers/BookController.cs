@@ -143,9 +143,38 @@ namespace WizLib.Controllers
 
         public IActionResult PlayGround()
         {
+            AttachVsUpdate();
+
             //Performance
             CheckPerformanceOfQuery();
 
+            //Eagerloading 
+            EagerLoading(); 
+
+
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        private void AttachVsUpdate()
+        {
+            //No change in book entity but change in bookdetail, Update will execute 2 queries to DB 1 for Book, 2 - book detail. 
+            var book1 = _db.Books.Include(a=> a.BookDetail).FirstOrDefault(o => o.Book_Id == 3);
+            book1.BookDetail.NumberOfPages = 500;
+            _db.Books.Update(book1);
+            _db.SaveChanges();
+
+
+            var book2 = _db.Books.Include(a => a.BookDetail).FirstOrDefault(o => o.Book_Id == 3);
+            book2.BookDetail.Weight = 25.89; 
+            _db.Books.Attach(book2);
+            _db.SaveChanges();
+
+
+        }
+
+        private void EagerLoading()
+        {
             //executed immediately after below statement 
             var bookTemp = _db.Books.FirstOrDefault();
             bookTemp.Price = 100;
@@ -174,8 +203,6 @@ namespace WizLib.Controllers
 
             //immediate db query since we need count value immmediately. 
             var bookCount2 = _db.Books.Count();
-            return RedirectToAction(nameof(Index));
-
         }
 
         private void CheckPerformanceOfQuery()
