@@ -140,5 +140,39 @@ namespace WizLib.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        public IActionResult PlayGround()
+        {
+            //executed immediately after below statement 
+            var bookTemp = _db.Books.FirstOrDefault();
+            bookTemp.Price = 100;
+
+            //not executed immediately 
+            var bookCollection = _db.Books;
+            double totalPrice = 0;
+
+            //db operation happen when IEnumerable object will be used. 
+            foreach (var book in bookCollection)
+            {
+                totalPrice += book.Price;
+            }
+
+            //db operation happens since the object needs to convert into ToList/ToArray etc. 
+            var bookList = _db.Books.ToList();
+            foreach (var book in bookList)
+            {
+                totalPrice += book.Price;
+            }
+
+            //No db query. 
+            var bookCollection2 = _db.Books;
+            //db query since need count of object. 
+            var bookCount1 = bookCollection2.Count();
+
+            //immediate db query since we need count value immmediately. 
+            var bookCount2 = _db.Books.Count();
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
